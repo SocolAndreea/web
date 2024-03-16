@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+export const WeightedTitle = styled.div`
+  font-family:
+    Nunito Sans,
+    sans-serif;
+  color: #494949;
+  font-weight: 800;
+  font-size: 15px;
+`;
 export const ButtonBlack = {
   fontFamily: "Nunito Sans, sans-serif",
   background: "#313131",

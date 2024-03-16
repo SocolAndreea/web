@@ -1,14 +1,25 @@
 import { observer } from "mobx-react";
-import { ButtonBlack, Modal } from "../../pages/StyledComponents";
-import { Button } from "@mui/material";
+import { Modal } from "../../pages/StyledComponents";
+import RegistrationBenefits from "./registrationToggle/RegistrationBenefits";
+import { createContext, useState } from "react";
+import RegistrationForm from "./registrationToggle/RegistrationForm";
+
+//modalul ramane si fac un toggle intre tot ce e interior si un registration form
 
 const RegistrationSide = () => {
+  const [toggle, setToggle] = useState(true);
+  const ToggleForm = createContext(toggle);
+  console.log("test toggle", toggle);
+
   return (
-    <Modal>
-      hello
-      <Button variant={"contained"} sx={ButtonBlack}>
-        Inregistrare
-      </Button>
+    <Modal style={{ gap: "20px" }}>
+      <ToggleForm.Provider value={toggle}>
+        {toggle ? (
+          <RegistrationBenefits toggleForm={setToggle} />
+        ) : (
+          <RegistrationForm toggleBenefits={setToggle} />
+        )}
+      </ToggleForm.Provider>
     </Modal>
   );
 };

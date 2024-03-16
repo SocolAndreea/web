@@ -1,7 +1,12 @@
 import { observer } from "mobx-react";
 import { Button, TextField } from "@mui/material";
-import { ButtonBlack, Modal } from "../../pages/StyledComponents";
+import {
+  ButtonBlack,
+  Modal,
+  WeightedTitle,
+} from "../../pages/StyledComponents";
 import { useState } from "react";
+import "./styles.css";
 
 const LoginSide = () => {
   const [username, setUsername] = useState("");
@@ -9,15 +14,19 @@ const LoginSide = () => {
 
   return (
     <Modal>
-      Intra:
+      <WeightedTitle>Intra: </WeightedTitle>
+      Nume de Utilizator:
       <TextField
+        className="customBorder"
         type="text"
         value={username}
         label="Username"
         variant="outlined"
         onChange={(e) => setUsername(e.target.value.trim())}
       ></TextField>
+      Parola:
       <TextField
+        className="customBorder"
         type="password"
         label="Password"
         value={password}
